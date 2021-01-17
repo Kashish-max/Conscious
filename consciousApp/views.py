@@ -35,7 +35,6 @@ def braille(request):
     # os.system("./consciousApp/static/consciousApp/file2brl/file2brl ./consciousApp/static/consciousApp/input/data.txt ./consciousApp/static/consciousApp/output/data.brf")
     return render(request,'consciousApp/braille.html')
 
-
 def triggers(request):
         if request.method=='POST':
             text = request.POST['some_text'].lower()
@@ -55,6 +54,21 @@ def dyslexicsol(request):
     return render(request,'consciousApp/open-dyslexic.html')
 
 def urldata(request):
+    print(request.POST)
+    link=request.POST['Link'][0]
+    print(link)
+    url = 'https://www.bbc.com/culture/article/20210111-the-ancient-roots-of-wonder-woman'
+    article = Article(url)
+    article.download()
+    article.parse()
+    print("Article Authors: ",article.authors)
+    print("Article Publish Date: ",article.publish_date)
+    #print("Article Text: ", article.text)
+    #print(article.top_image)
+    #print(article.movies)
+    article.nlp()
+    print("Article Keywords:",article.keywords)
+    print("Article Summary: ",article.summary)
     return render(request, 'consciousApp/triggers.html')
 
 
