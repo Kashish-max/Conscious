@@ -1,81 +1,77 @@
-<html> 
-<head>
-    {% load static %}
-	<link id="css" href="{% static 'consciousApp/css/braille-big.css' %}" rel="stylesheet">
-	<link href="{% static 'consciousApp/css/demo.css' %}" rel="stylesheet">
-    <link rel="icon" type="image/png" href="br.gif">
-    <title>Braille-Translator</title>
+{% extends 'consciousApp/index.html' %} {% load static %} {% block body_block%}
+<link id="css" href="{% static 'consciousApp/css/braille-big.css' %}" rel="stylesheet">
+<link href="{% static 'consciousApp/css/demo.css' %}" rel="stylesheet">
+<link rel="icon" type="image/png" href="br.gif">
+<title>Braille-Translator</title>
 
-	<script src="{% static 'consciousApp/js/braille-tools.js' %}"></script>
+<script src="{% static 'consciousApp/js/braille-tools.js' %}"></script>
+<script language="javascript">
+	function elem(id){
+		return document.getElementById(id);
+}
+function showBraille() {
+	var message = elem("txtBraille").value;
+	elem('myBraille').innerHTML=br.braille(message);
+}
+function BrText() {
+	var message = elem("txtBr").value;
+	elem('myBr').innerHTML=br.braille(message);
+}
+function setCSS(size) {
+	elem('css').href='css/braille-'+size+'.css';
+}
+</script>
+<div style="color:#000; width:85%; display:block;">
+	<h1>Braille-Translator</h1>
+
+	
+	<p>Braille /ˈbreɪl/ (Braille: ⠃⠗⠇; French: [bʁaj]) is a tactile writing system used by people who are 
+		visually impaired. It is traditionally written with embossed paper. 
+		Braille users can read computer screens and other electronic supports using refreshable braille displays. 
+		They can write braille with the original slate and stylus or type it on a braille writer, 
+		such as a portable braille notetaker or computer that prints with a braille embosser.</p>
+	<p>Braille is named after its creator, Louis Braille, a Frenchman who lost his sight as a result of a
+		childhood accident. In 1824, at the age of fifteen, he developed a code for the French alphabet as 
+		an improvement on night writing. He published his system, which subsequently included musical notation, 
+		in 1829.[1] The second revision, published in 1837, was the first binary form of writing developed in the
+		modern era.</p>
+		
+	<p>  These characters have rectangular blocks called cells that have tiny bumps called raised dots. 
+		The number and arrangement of these dots distinguish one character from another.
+		Since the various braille alphabets originated as transcription codes for printed writing,
+		the mappings (sets of character designations) vary from language to language, and even within one;
+		in English Braille there are three levels of encoding: Grade 1 – a letter-by-letter transcription
+			used for basic literacy; Grade 2 – an addition of abbreviations and contractions;
+		and Grade 3 – various non-standardized personal stenography. </p>
+	<h2>Alphabet</h2>
+
 	<script language="javascript">
-		function elem(id){
-			return document.getElementById(id);
-		}
-		function showBraille() {
-			var message = elem("txtBraille").value;
-			elem('myBraille').innerHTML=br.braille(message);
-		}
-		function BrText() {
-			var message = elem("txtBr").value;
-			elem('myBr').innerHTML=br.braille(message);
-		}
-		function setCSS(size) {
-			elem('css').href='css/braille-'+size+'.css';
-		}
+		document.write(br.alphabet())
 	</script>
-</head>
-<body>
-<h1>Braille-Translator</h1>
 
- 
-<p>Braille /ˈbreɪl/ (Braille: ⠃⠗⠇; French: [bʁaj]) is a tactile writing system used by people who are 
-    visually impaired. It is traditionally written with embossed paper. 
-    Braille users can read computer screens and other electronic supports using refreshable braille displays. 
-    They can write braille with the original slate and stylus or type it on a braille writer, 
-    such as a portable braille notetaker or computer that prints with a braille embosser.</p>
-<p>Braille is named after its creator, Louis Braille, a Frenchman who lost his sight as a result of a
-     childhood accident. In 1824, at the age of fifteen, he developed a code for the French alphabet as 
-     an improvement on night writing. He published his system, which subsequently included musical notation, 
-     in 1829.[1] The second revision, published in 1837, was the first binary form of writing developed in the
-      modern era.</p>
-    
-<p>  These characters have rectangular blocks called cells that have tiny bumps called raised dots. 
-    The number and arrangement of these dots distinguish one character from another.
-     Since the various braille alphabets originated as transcription codes for printed writing,
-      the mappings (sets of character designations) vary from language to language, and even within one;
-       in English Braille there are three levels of encoding: Grade 1 – a letter-by-letter transcription
-        used for basic literacy; Grade 2 – an addition of abbreviations and contractions;
-     and Grade 3 – various non-standardized personal stenography. </p>
-<h2>Alphabet</h2>
+	<input id="txtBr" value="I am reading Braille" class="form-control pull-left" type="text" style="width:200px"> 
+	<input id="btnBr" type="submit" value="Show Braille" maxlength="50" onclick="BrText()"
+			class="btn btn-primary pull-left">
 
-<script language="javascript">
-	document.write(br.alphabet())
-</script>
+	<div style="height:20px;width:1px;"></div>
+	<div id="myBr" class="braille" style="margin-top:30px;min-height:70px;min-width:1px;"></div>
+	
 
-<input id="txtBr" value="I am reading Braille" class="form-control pull-left" type="text" style="width:200px"> 
-<input id="btnBr" type="submit" value="Show Braille" maxlength="50" onclick="BrText()"
-		class="btn btn-primary pull-left">
+	<script language="javascript">
+	document.getElementById('txtBr').addEventListener("keyup", function(evt) {
+		if(evt.keyCode===13){
+			BrText();
+		}
+	});
+	</script> 
 
-<div style="height:20px;width:1px;"></div>
-<div id="myBr" class="braille" style="margin-top:30px;min-height:70px;min-width:1px;"></div>
- 
+	<form action = "" method = "POST"> 
+		{% csrf_token %}  
+		<label for="text_data">Text Content:</label> <br>
+		<input id="text_data" type="text" name="text_data"> <br>
+		<input type="submit" value="BRF conversion"> 
+	</form> 
 
-<script language="javascript">
-document.getElementById('txtBr').addEventListener("keyup", function(evt) {
-	if(evt.keyCode===13){
-		BrText();
-	}
-});
-</script> 
-
-<form action = "" method = "POST"> 
-    {% csrf_token %}  
-    <label for="text_data">Text Content:</label> <br>
-    <input id="text_data" type="text" name="text_data"> <br>
-    <input type="submit" value="BRF conversion"> 
-</form> 
-
-</script>
+	</script>
 </div>
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,27 @@
+.home-sec {
+    color: #000;
+    width: 85%;
+    margin: 0 auto;
+}
+
+.card-area {
+    display: flex;
+}
+
+.card {
+    width: 50%;
+    background: #fff;
+    height: 300px;
+    padding: 0.7rem;
+    margin: 2rem;
+    -webkit-box-shadow: 0 10px 6px -6px #bbb;
+    -moz-box-shadow: 0 10px 6px -6px #bbb;
+    box-shadow: 0 10px 6px -6px #bbb;
+    border-radius: 5px;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    background-color: #222;
+}

@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Trigger Warnings</title>
-</head>
-<body>
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet"/>
+{% extends 'consciousApp/index.html' %} {% load static %} {% block body_block%}
+<meta charset="UTF-8">
+<title>Trigger Warnings</title>
 <div class="container">
   <div class="row">
     <div class="col">
@@ -29,6 +24,5 @@
         document.getElementById('btn').onclick = function() {
             document.getElementById('trigPanel').innerHTML = 'a warning';
         }
-    </script>
-</body>
-</html>
+</script>
+{% endblock %}

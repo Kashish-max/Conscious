@@ -5,7 +5,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.home, name='home'),
     path('braille',views.braille ,name='braille'),
     path('ocr', views.ocr, name='ocr'),
     path('triggers', views.triggers, name='triggers'),

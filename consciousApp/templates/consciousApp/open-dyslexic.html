@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        {% load static %}
-        <title>Open-Dyslexic</title>
-        <link id="css" href="{% static 'consciousApp/css/dyslexicsol.css' %}" rel="stylesheet">
+{% extends 'consciousApp/index.html' %} {% load static %} {% block body_block%}
+<title>Open-Dyslexic</title>
+<link id="css" href="{% static 'consciousApp/css/dyslexicsol.css' %}" rel="stylesheet">
+<script src="{% static 'consciousApp/js/dyslexicsol.js' %}"></script>
 
-    
-        <script src="{% static 'consciousApp/js/dyslexicsol.js' %}"></script>
-    </head>
-</html>
-<body>
-    <h1>
-        Open-Dyslexic
-    </h1>
-
-    
-</body>
+<h1>
+    Open-Dyslexic
+</h1>
+{% endblock %}
