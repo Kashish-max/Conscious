@@ -3,7 +3,7 @@
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=shields)](http://makeapullrequest.com)
 
-Conscious is a utility web app that serves the people with special needs and helps make the access of data easier and safer manner.
+Conscious is a utility web app that serves the people with special needs and helps make the access of data easier and safer manner.Our platform provides a simple yet efficient user experience with a straightforward and easy-to-use interface. We have made the web application to integrate different aspects of it into one platform, each part intricately connected to others, each dedicated to solving issues that people with special needs might encounter.
 
 We provide various functionalities listed below:
 <ul>
@@ -54,9 +54,10 @@ python manage.py runserver
 References:
 ## Important Links:
 <li>1)[Tesseract.js](https://tesseract.projectnaptha.com/)</li>
-<li>2)[Molvec.jar](https://github.com/ncats/molvec)</li>
-<li>3)[PubChemPy](https://pubchempy.readthedocs.io/en/latest/)</li>
-<li>4)[HACKDAVIS2021](https://hackdavis2021.devpost.com/)</li>
+<li>2)[Liblouis Library](http://liblouis.org/)</li>
+<li>3)[Braille-Tools](https://evoluteur.github.io/braille-tools/index.html)</li>
+<li>4)[Open Dyslexic](https://opendyslexic.org/)
+<li>5)[HACKDAVIS2021](https://hackdavis2021.devpost.com/)</li>
 
 ## License: MIT LICENSE
 
