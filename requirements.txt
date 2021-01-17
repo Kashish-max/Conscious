@@ -1,1 +1,5 @@
 Django==3.1.5
+numpy
+pandas
+newspaper
+nltk

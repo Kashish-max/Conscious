@@ -94,12 +94,30 @@ function post(path, params, method='post') {
 }
 
 	</script>
+	<br><br><br>
+	<div style="margin-left: 315px;">
 	<div class="gallery">
 	<a id="btnPost" target="_blank" onclick="post('triggers', {'some_text': document.getElementById('log').innerHTML, csrfmiddlewaretoken: '{{ csrf_token }}'});">
-		<img src="{% static 'consciousApp/images/tw.jpg' %}" alt="TW" width="600" height="400">
+		<img src="{% static 'consciousApp/images/tw.png' %}" alt="TW" width="600" height="400">
 	</a>
 	<div class="desc">Find trigger warnings in the text</div>
 	</div>
+
+	<div class="gallery">
+	<a target="_blank" onclick="post('#', {'some_text': document.getElementById('log').innerHTML, csrfmiddlewaretoken: '{{ csrf_token }}'});">
+		<img src="{% static 'consciousApp/images/braille.png' %}" alt="braille" width="600" height="400">
+	</a>
+	<div class="desc">Convert text to braille</div>
+	</div>
+
+	<div class="gallery">
+	<a target="_blank" onclick="post('#', {'some_text': document.getElementById('log').innerHTML, csrfmiddlewaretoken: '{{ csrf_token }}'});">
+		<img src="{% static 'consciousApp/images/dys.png' %}" alt="dys" width="600" height="400">
+	</a>
+	<div class="desc">Show text in Open-Dyslexic font</div>
+	</div>
+	</div>
+
 
 </div>
 <script src="{% static 'consciousApp/js/ocr.js' %}"></script>
