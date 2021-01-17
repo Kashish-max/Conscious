@@ -1,5 +1,8 @@
 Django==3.1.5
 numpy
 pandas
-newspaper
+newspaper3k
 nltk
+gunicorn
+wordcloud
+os
