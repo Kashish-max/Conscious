@@ -47,6 +47,19 @@
   <input id="Link" type="text" name="Link"> <br>
   <input type="submit" value="Check Triggers"> 
 </form> 
+
+
+<button  class="btn btn-default" onclick="picture()">WordCloud</button>
+<img id="bigpic" src="bigpic" style="display:none;" />
+<script type="text/javascript">
+  function picture(){ 
+
+  var pic = "./../static/consciousApp/output/word-cloud-url.png"
+  document.getElementById('bigpic').src = pic.replace('90x90', '225x225');
+  document.getElementById('bigpic').style.display='block';
+
+  }
+</script>
 <!--
 <script>
         document.getElementById('btn').onclick = function() {

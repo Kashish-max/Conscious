@@ -1,11 +1,18 @@
 from django.shortcuts import render
 from django.http import HttpResponse, Http404
 import os
-import numpy 
-import pandas
+from os import path
+
+import numpy as np
+import pandas as pd
+from PIL import Image
+from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
+import matplotlib.pyplot as plt
 from newspaper import Article
 import nltk
 nltk.download('punkt') 
+import re, pprint
+from nltk import word_tokenize
 
 def home(request):
     return render(request, 'consciousApp/home.html')
@@ -68,11 +75,15 @@ def urldata(request):
     print("Article Authors: ",article.authors)
     print("Article Publish Date: ",article.publish_date)
     #print("Article Text: ", article.text)
+    data=article.text
+    tokens = word_tokenize(data)
+    text = nltk.Text(tokens)
+    stopwords = set(STOPWORDS)
+    wordcloud = WordCloud(stopwords=stopwords, max_font_size=50, max_words=100, background_color="white").generate(str(text))
+    wordcloud.to_file("./consciousApp/static/consciousApp/output/word-cloud-url.png")
     #print(article.top_image)
     #print(article.movies)
     article.nlp()
     print("Article Keywords:",article.keywords)
     print("Article Summary: ",article.summary)
     return render(request, 'consciousApp/triggers.html')
-
-
