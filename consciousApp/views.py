@@ -19,6 +19,7 @@ def braille(request):
     # os.system("./consciousApp/static/consciousApp/file2brl/file2brl ./consciousApp/static/consciousApp/input/data.txt ./consciousApp/static/consciousApp/output/data.brf")
     return render(request,'consciousApp/braille.html')
 
+
 def triggers(request):
         if request.method=='POST':
             text = request.POST['some_text'].lower()

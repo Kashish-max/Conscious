@@ -26,9 +26,11 @@
         <div class="row" id="trigPanel">
             {% if text %}
             <ul>
+                {% if triggers %}
                 {% for t in triggers %}
                      <li>{{ t }}</li>
                 {% endfor %}
+                {% endif %}
             </ul>
             {% endif %}
         </div>

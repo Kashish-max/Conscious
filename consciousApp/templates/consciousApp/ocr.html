@@ -62,18 +62,45 @@
 			</div>
 		</div>
 	</main>
+	<script>
+		/**
+ * sends a request to the specified url from a form. this will change the window location.
+ * @param {string} path the path to send the post request to
+ * @param {object} params the paramiters to add to the url
+ * @param {string} [method=post] the method to use on the form
+ */
+
+function post(path, params, method='post') {
+
+  // The rest of this code assumes you are not using a library.
+  // It can be made less wordy if you use one.
+  const form = document.createElement('form');
+  form.method = method;
+  form.action = path;
+
+  for (const key in params) {
+    if (params.hasOwnProperty(key)) {
+      const hiddenField = document.createElement('input');
+      hiddenField.type = 'hidden';
+      hiddenField.name = key;
+      hiddenField.value = params[key];
+
+      form.appendChild(hiddenField);
+    }
+  }
+
+  document.body.appendChild(form);
+  form.submit();
+}
+
+	</script>
 	<div class="gallery">
-	<a id="btnPost" target="_blank" href="triggers">
-		<img src="{% static 'consciousApp/images/tw.jpg' %}" alt="Cinque Terre" width="600" height="400">
+	<a id="btnPost" target="_blank" onclick="post('triggers', {'some_text': document.getElementById('log').innerHTML, csrfmiddlewaretoken: '{{ csrf_token }}'});">
+		<img src="{% static 'consciousApp/images/tw.jpg' %}" alt="TW" width="600" height="400">
 	</a>
 	<div class="desc">Find trigger warnings in the text</div>
 	</div>
-	<form action = "triggers" method = "POST">
-		{% csrf_token %}
-		<label for="some_text">Text: </label>
-		<input id="some_text" type="text" name="some_text">
-		<input type="submit" value="OK">
-	</form>
+
 </div>
 <script src="{% static 'consciousApp/js/ocr.js' %}"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
