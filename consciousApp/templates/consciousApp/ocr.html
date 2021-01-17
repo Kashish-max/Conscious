@@ -104,7 +104,7 @@ function post(path, params, method='post') {
 	</div>
 
 	<div class="gallery">
-	<a target="_blank" onclick="post('#', {'some_text': document.getElementById('log').innerHTML, csrfmiddlewaretoken: '{{ csrf_token }}'});">
+	<a target="_blank" onclick="post('braille', {'some_text': document.getElementById('log').innerHTML, csrfmiddlewaretoken: '{{ csrf_token }}'});">
 		<img src="{% static 'consciousApp/images/braille.png' %}" alt="braille" width="600" height="400">
 	</a>
 	<div class="desc">Convert text to braille</div>

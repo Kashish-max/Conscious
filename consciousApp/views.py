@@ -33,7 +33,11 @@ def braille(request):
     # text_file.write(str(text_data[0])) 
     # text_file.close() 
     # os.system("./consciousApp/static/consciousApp/file2brl/file2brl ./consciousApp/static/consciousApp/input/data.txt ./consciousApp/static/consciousApp/output/data.brf")
-    return render(request,'consciousApp/braille.html')
+    val = 'I am reading Braille'
+    if request.method=='POST':
+        val = request.POST['some_text']
+    print(type(val))
+    return render(request,'consciousApp/braille.html', {'val': val})
 
 def triggers(request):
         if request.method=='POST':

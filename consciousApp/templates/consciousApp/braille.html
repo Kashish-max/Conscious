@@ -49,7 +49,7 @@ function setCSS(size) {
 		document.write(br.alphabet())
 	</script>
 
-	<input id="txtBr" value="I am reading Braille" class="form-control pull-left" type="text" style="width:200px"> 
+	<input id="txtBr" value= '{{ val }}' class="form-control pull-left" type="text" style="width:200px">
 	<input id="btnBr" type="submit" value="Show Braille" maxlength="50" onclick="BrText()"
 			class="btn btn-primary pull-left">
 
@@ -63,7 +63,7 @@ function setCSS(size) {
 			BrText();
 		}
 	});
-	</script> 
+	</script>
 
 <form action = "{% url 'ttb' %}" method = "POST"> 
 		{% csrf_token %}  
