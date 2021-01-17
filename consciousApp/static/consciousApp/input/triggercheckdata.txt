@@ -1,6 +1,0 @@
-
-						<span id="startpre">
-							<a id="startlink" href="#">click here to recognize text in the demo</a>
-							<br> or choose your own image
-						</span>
-				
