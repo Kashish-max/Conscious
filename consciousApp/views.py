@@ -9,6 +9,9 @@ def ocr(request):
     return render(request, 'consciousApp/ocr.html')
 
 def braille(request):
+    print(request.POST) 
+    data=request.POST.get('your_name')
+    print(data)
     return render(request,'consciousApp/braille.html')
 
 def triggers(request):
