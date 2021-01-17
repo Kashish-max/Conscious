@@ -14,3 +14,4 @@ def braille(request):
 def triggers(request):
         return render(request, 'consciousApp/triggers.html')
 
+
