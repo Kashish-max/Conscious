@@ -68,7 +68,12 @@ document.getElementById('txtBr').addEventListener("keyup", function(evt) {
 });
 </script> 
 
-
+<form action = "" method = "POST"> 
+    {% csrf_token %}  
+    <label for="textdata">Your name: </label> 
+    <input id="textdata" type="text" name="text_data"> 
+    <input type="submit" value="BRF conversion"> 
+</form> 
 
 </script>
 </div>
