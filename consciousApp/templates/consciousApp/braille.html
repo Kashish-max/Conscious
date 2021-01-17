@@ -65,7 +65,7 @@ function setCSS(size) {
 	});
 	</script> 
 
-	<form action = "" method = "POST"> 
+<form action = "{% url 'ttb' %}" method = "POST"> 
 		{% csrf_token %}  
 		<label for="text_data">Text Content:</label> <br>
 		<input id="text_data" type="text" name="text_data"> <br>
