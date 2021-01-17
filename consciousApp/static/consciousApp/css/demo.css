@@ -1,16 +1,13 @@
 
-body{
-    margin: 10px 20px 10px 50px;
-}
 body, input, select {
   font-size: 16px;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
+/* 
 h1, h2, h3, h4 { 
     padding-top: 10px;
     color: #0099cc;
-}
+} */
 
 .braille{
     margin-top:20px;

@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- Fonts Links -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
       rel="stylesheet"
@@ -19,14 +22,14 @@
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap"
       rel="stylesheet"
     />
+    
 
     <!-- Style Sheets -->
     <link rel="stylesheet" href={% static
     'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'
     %}
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-    crossorigin="anonymous" /> <link rel="stylesheet" type="text/css" href={%
-    static 'consciousApp/css/main.css' %}>
+    crossorigin="anonymous" /> <link rel="stylesheet" type="text/css" href={% static 'consciousApp/css/main.css' %}>
 
     <!-- Scripts -->
     <script
@@ -36,9 +39,42 @@
   </head>
 
   <body>
-    <h1>You are still on index page you dumb :)</h1>
-    <p>Click <a href="ocr">here</a> to go to the ocr page!</p>
 
+    <input type="checkbox" name="checkbox" id="checkbox" />
+    <main id="main-content">
+      <h3 class="logo">CONSCIOUS</h3>
+      <label for="checkbox" class="check-box">
+        <span class="line line1"></span>
+        <span class="line line3"></span>
+        <span class="line line2"></span>
+      </label>
+      <h3 class="welcome">Hi User!</h3>
+      <i class="fa fa-user" aria-hidden="true"></i>
+    </main>
+    <div class="comp-body">
+      <aside id="sidebar">
+        <main class="navbar-body">
+          <ul>
+            <li class="nav-item">
+              <a href="{% url 'home' %}" class="nav-link"> Dashboard </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'braille' %}" class="nav-link"> Braille ASCII</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'triggers' %}" class="nav-link"> Trigger Alerts</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'ocr' %}" class="nav-link"> OCR</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'opendyslexic' %}" class="nav-link"> Open Dyslexic </a>
+            </li>
+          </ul>
+        </main>
+      </aside>
+      {% block body_block %} {% endblock %}
+    </div>
     <script
       type="text/javascript"
       src="{% static 'consciousApp/js/main.js' %}"

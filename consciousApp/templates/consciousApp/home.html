@@ -1,0 +1,27 @@
+{% extends 'consciousApp/index.html' %} {% load static %} {% block body_block%}
+<link rel="stylesheet" type="text/css" href={% static 'consciousApp/css/home.css' %}>
+
+<div class="home-sec">
+  <div class="card-area">
+    <div class="card">
+        <a href="{% url 'braille' %}"><img src=""></a>
+    </div>
+    <div class="card">
+        <a href=""><img src=""></a>
+    </div>
+  </div>
+  <div class="card-area">
+    <div class="card">
+        <a href=""><img src=""></a>    
+    </div>
+    <div class="card">
+        <a href=""><img src=""></a>
+    </div>
+  </div>
+</div>
+
+<script
+  type="text/javascript"
+  src="{% static 'consciousApp/js/main.js' %}"
+></script>
+{% endblock %}
