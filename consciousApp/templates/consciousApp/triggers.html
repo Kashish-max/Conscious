@@ -13,7 +13,7 @@
         <form>
             <div class="form-group">
              <label for="exampleFormControlTextarea1">Paste the text to be searched here:</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">sample text comes here</textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{% if text %} {{text}} {% endif %}</textarea>
                 </div>
             <button type="button" class="btn btn-default" id="btn">Check!</button>
         </form>
