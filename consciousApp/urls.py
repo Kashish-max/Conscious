@@ -10,5 +10,6 @@ urlpatterns = [
     path('ocr', views.ocr, name='ocr'),
     path('triggers', views.triggers, name='triggers'),
     path('open-dyslexic',views.dyslexicsol,name='opendyslexic'),
-    path('texttobrf',views.texttobrf,name='ttb')
+    path('texttobrf',views.texttobrf,name='ttb'),
+    path('urldata',views.urldata,name='urldata')
 ]
