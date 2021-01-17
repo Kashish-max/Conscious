@@ -14,6 +14,18 @@ nltk.download('punkt')
 import re, pprint
 from nltk import word_tokenize
 
+def checkKey(dict, key): 
+      
+    if key in dict.keys(): 
+        return True
+        print("Present, ", end =" ") 
+        print("value =", dict[key]) 
+    else: 
+        return False
+        print("Not present") 
+  
+ 
+
 def home(request):
     return render(request, 'consciousApp/home.html')
 
@@ -40,37 +52,51 @@ def braille(request):
 def triggers(request):
         if request.method=='POST':
             print(request.POST)
-    # link=request.POST['Link'][0]
-    # print(link)
-    # url = 'https://www.bbc.com/culture/article/20210111-the-ancient-roots-of-wonder-woman'
-    # article = Article(url)
-    # article.download()
-    # article.parse()
-    # print("Article Authors: ",article.authors)
-    # print("Article Publish Date: ",article.publish_date)
-    # #print("Article Text: ", article.text)
-    # data=article.text
-    # tokens = word_tokenize(data)
-    # text = nltk.Text(tokens)
-    # stopwords = set(STOPWORDS)
-    # wordcloud = WordCloud(stopwords=stopwords, max_font_size=50, max_words=100, background_color="white").generate(str(text))
-    # wordcloud.to_file("./consciousApp/static/consciousApp/output/word-cloud-url.png")
-    # #print(article.top_image)
-    # #print(article.movies)
-    # article.nlp()
-    # print("Article Keywords:",article.keywords)
-    # print("Article Summary: ",article.summary)
-            print(request.POST)
-            text = request.POST['input_text'].lower()
-            triggers = ["9 11", "9-11", "9/11", "ableism", "abusive", "ageism", "alcoholism", "animal abuse", "animal death", "animal violence", "bestiality", "gore", "corpse", "bully", "cannibal", "car accident", "child abuse", "childbirth", "classism", "death", "decapitation", "abuse", "drug", "heroin", "cocaine", "eating disorder", "anorexia", "binge eating", "bulimia", "fatphobia", "forced captivity", "holocaust", "hitler", "homophobia", "hostage", "incest", "kidnap", "murder", "nazi", "overdose", "pedophilia", "prostitution", "PTSD", "racism", "racist", "rape", "raping", "scarification", "self-harm", "self harm", "cutting", "sexism", "slavery", "slurs", "suicide", "suicidal", "swearing", "terminal illness", "terrorism", "torture", "transphobia", "violence", "warfare"]
-            tw = []
-            text_file = open('./consciousApp/static/consciousApp/input/triggercheckdata.txt', 'w+') 
-            text_file.write(str(text)) 
-            text_file.close() 
-            for trigger in triggers:
-                if text.find(trigger) > -1: tw.append(trigger)
-            if tw == []: tw.append('No Triggers Found')
-            return render(request, 'consciousApp/triggers.html', {'text': text, 'triggers': tw})
+            data=dict(request.POST)
+            # Driver Code  
+            key = 'show_details'
+            one=checkKey(data, key);
+            key = 'check_triggers'
+            two=checkKey(data, key)
+            key = 'show_wordcloud'
+            three=checkKey(data, key)
+            print(one,two,three)
+            #URL Link case
+            if(one==True):
+                url=data['Link'][0]
+                print(url)
+                article = Article(url)
+                article.download()
+                article.parse()
+                authors=article.authors
+                publishdate=article.publish_date
+                #article.text
+                article.nlp()
+                keywords=article.keywords
+                articlesummary=article.summary
+                return render(request, 'consciousApp/triggers.html', {'authors':authors , 'publishdate': publishdate,'keywords':keywords,'articlesummary':articlesummary})
+            #Show triggers
+            elif(two==True):
+                text = request.POST['input_text'].lower()
+                triggers = ["9 11", "9-11", "9/11", "ableism", "abusive", "ageism", "alcoholism", "animal abuse", "animal death", "animal violence", "bestiality", "gore", "corpse", "bully", "cannibal", "car accident", "child abuse", "childbirth", "classism", "death", "decapitation", "abuse", "drug", "heroin", "cocaine", "eating disorder", "anorexia", "binge eating", "bulimia", "fatphobia", "forced captivity", "holocaust", "hitler", "homophobia", "hostage", "incest", "kidnap", "murder", "nazi", "overdose", "pedophilia", "prostitution", "PTSD", "racism", "racist", "rape", "raping", "scarification", "self-harm", "self harm", "cutting", "sexism", "slavery", "slurs", "suicide", "suicidal", "swearing", "terminal illness", "terrorism", "torture", "transphobia", "violence", "warfare"]
+                tw = []
+                text_file = open('./consciousApp/static/consciousApp/input/triggercheckdata.txt', 'w+') 
+                text_file.write(str(text)) 
+                text_file.close() 
+                for trigger in triggers:
+                    if text.find(trigger) > -1: tw.append(trigger)
+                if tw == []: tw.append('No Triggers Found')
+                return render(request, 'consciousApp/triggers.html', {'text': text, 'triggers': tw,'data':data})
+            #Show_cloud           
+            elif(three==True):
+                text = request.POST['input_text'].lower()
+                tokens = word_tokenize(text)
+                textdata = nltk.Text(tokens)
+                stopwords = set(STOPWORDS)
+                wordcloud = WordCloud(stopwords=stopwords, max_font_size=50, max_words=100, background_color="white").generate(text)
+                wordcloud.to_file("./consciousApp/static/consciousApp/output/word-cloud.png")
+                data="./../../static/consciousApp/output/word-cloud.png"
+                return render(request, 'consciousApp/triggers.html', {'data': data} )          
         else:
             return render(request, 'consciousApp/triggers.html')
 

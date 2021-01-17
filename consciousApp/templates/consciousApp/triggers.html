@@ -29,7 +29,7 @@
     {% csrf_token %}
     <div style="display: flex; margin-bottom: 15px;">
       <div style="display: block; margin-right: 25px;">
-        <label for="Link">Text Content:</label> <br />
+        <label for="Link">URL LINK:</label> <br />
         <input id="Link" class="txt-in" type="url" name="Link" /> <br />
       </div>
       <div style="display: block">
@@ -39,7 +39,23 @@
     </div>
     <input type="submit" class="submitbtn" name="show_wordcloud" value="Show WordCloud" />
     <input type="submit" class="submitbtn" name="check_triggers" value="Check Triggers" />
+    <input type="submit" class="submitbtn" name="show_details" value="Show URL Text Details" />
   </form>
+
+<br>
+<hr>
+<br>
+<p> Trigger Words: {{triggers}} {{tw}}</p><br>
+<img src="{% static 'consciousApp/output/word-cloud.png' %}" alt="Lamp" >
+<br>
+<hr>
+<p>Authors: {{authors}}</p><br>
+<p>Published On: {{publishdate}}</p><br>
+<p>Keywords: {{keywords}}</p><br>
+<p>Article's summary: {{articlesummary}}</p><br>
+<br>
+<hr>
+<br>
 </div>
 <!-- <button  class="btn btn-default" onclick="picture()">WordCloud</button>
 <img id="bigpic" src="bigpic" style="display:none;" />
