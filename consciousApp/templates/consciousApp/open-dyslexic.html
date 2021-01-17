@@ -1,9 +1,76 @@
 {% extends 'consciousApp/index.html' %} {% load static %} {% block body_block%}
 <title>Open-Dyslexic</title>
-<link id="css" href="{% static 'consciousApp/css/dyslexicsol.css' %}" rel="stylesheet">
+<link
+  id="css"
+  href="{% static 'consciousApp/css/dyslexicsol.css' %}"
+  rel="stylesheet"
+/>
 <script src="{% static 'consciousApp/js/dyslexicsol.js' %}"></script>
+<div class="dyslexic-sec">
+  <div class="dys-descrp">
+    <p class="dys-head">OpenDyslexic: A typeface for Dyslexia</p>
+    <p class="dys-exp">
+      OpenDyslexic is a typeface designed against some common symptoms of
+      dyslexia. If you like the way you are able to read this page, and others,
+      then this typeface is for you!
+    </p>
+  </div>
+  <div class="dys-func">
+    <div class="dys-e-body">
+      <div class="dys-editor dys-input">
+        <div class="editor-head in-head">
+          <p>Input Text</p>
+        </div>
+        <div class="edit-body">
+          <textarea
+            placeholder="Hello! Convert your text into dyslexic readable form."
+          ></textarea>
+        </div>
+      </div>
+      <div class="dys-editor dys-output">
+        <div class="editor-head out-head">
+          <p>Output Text</p>
+        </div>
+        <div class="edit-body">
+          <textarea
+            placeholder="Hello! Convert your text into dyslexic readable form."
+            readonly
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <p>
+      <input
+        type="button"
+        value="Create PDF"
+        id="btPrint"
+        onclick="createPDF()"
+      />
+    </p>
+  </div>
 
-<h1>
-    Open-Dyslexic
-</h1>
-{% endblock %}
+  <script>
+    document
+      .querySelector(".edit-body textarea")
+      .addEventListener("change", function () {
+        document.querySelector(".dys-output textarea").value = this.value;
+      });
+    function createPDF() {
+      var sTable = document.querySelector(".dys-output textarea").value;
+
+      var style = `<style>
+          *{font-family: opendyslexic !important;}
+        </style>`;
+
+      var win = window.open("", "", "height=700,width=700");
+      var pdfHTML = `<html><head><title>Dyslexic Font Format</title>${style}</head><body><p>${sTable}<p></body></html>`;
+
+      win.document.write(pdfHTML);
+
+      win.document.close(); // CLOSE THE CURRENT WINDOW.
+
+      win.print(); // PRINT THE CONTENTS.
+    }
+  </script>
+  {% endblock %}
+</div>

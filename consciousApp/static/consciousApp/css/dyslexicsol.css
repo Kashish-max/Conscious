@@ -7,42 +7,112 @@
     font-family: OpenDyslexic;
     src: url("./../fonts/OpenDyslexicMono-Regular.otf") format("opentype");
 }
+
 @font-face {
     font-family: 'opendyslexic';
-      src: url('http://dyslexicfonts.com/fonts/OpenDyslexic-Regular.otf');
-      font-style: normal;
-      font-weight: normal;
-  } 
-  
-  @font-face {
-      font-family: 'opendyslexic';
-      src: url('http://dyslexicfonts.com/fonts/OpenDyslexic-Italic.ttf');
-      font-style: italic;
-      font-weight: normal;
-  }
-  
-  @font-face {
-      font-family: 'opendyslexic';
-      src: url('http://dyslexicfonts.com/fonts/OpenDyslexic-Bold.ttf');
-      font-weight: bold;
-      font-style: normal;
-  } 
-  
-  @font-face {
-      font-family: 'opendyslexic';
-      src: url('http://dyslexicfonts.com/fonts/OpenDyslexic-BoldItalic.ttf');
-      font-weight: bold;
-      font-style: italic;
-  } 
-  
-  @font-face {
-      font-family: eulexia;
-      src: url('http://dyslexicfonts.com/fonts/eulexia.ttf');
-  } 
-/*   
-  * {
-      font-size:20px;
-      line-height:200%;
-      color: #191A42;
-      font-family:opendyslexic !important;
-  } */
+    src: url('http://dyslexicfonts.com/fonts/OpenDyslexic-Regular.otf');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'opendyslexic';
+    src: url('http://dyslexicfonts.com/fonts/OpenDyslexic-Italic.ttf');
+    font-style: italic;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'opendyslexic';
+    src: url('http://dyslexicfonts.com/fonts/OpenDyslexic-Bold.ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'opendyslexic';
+    src: url('http://dyslexicfonts.com/fonts/OpenDyslexic-BoldItalic.ttf');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: eulexia;
+    src: url('http://dyslexicfonts.com/fonts/eulexia.ttf');
+}
+
+.dyslexic-sec {
+    font-family: opendyslexic !important;
+    color: #fff;
+    height: 100%;
+    width: 85%;
+    padding: 1%;
+}
+
+.dys-descrp {
+    background-color: #106d85;
+    border-radius: 10px;
+    margin: 1%;
+}
+
+.dys-head {
+    font-size: 30px;
+    background-color: #07657d;
+    padding: 2%;
+    border-bottom: 2px solid #175e71;
+}
+
+.dys-exp {
+    padding: 2%;
+}
+
+.dys-func {
+    display: block;
+}
+
+.dys-func p input {
+    margin: 1%;
+    padding: 0.5% 1%;
+    border: none;
+    background: none;
+    border: 2px solid #56c6d7;
+    color: #56c6d7;
+    border-radius: 5px;
+    font-size: 17px;
+}
+
+.dys-func p input:hover {
+    background-color: #56c6d7;
+    color: #fff;
+}
+
+.dys-e-body {
+    display: flex;
+}
+
+.dys-editor {
+    margin: 1%;
+    width: 50%;
+}
+
+.editor-head p {
+    color: #333 !important;
+}
+
+.dys-input textarea {
+    font-family: 'Quicksand' !important;
+    font-size: 18px;
+}
+
+.dys-output textarea {
+    font-family: opendyslexic !important;
+    font-size: 16px;
+}
+
+.edit-body textarea {
+    width: 100%;
+    height: 36vh;
+    border-radius: 10px;
+    padding: 2% 2%;
+    border: 1px solid #ccc
+}
