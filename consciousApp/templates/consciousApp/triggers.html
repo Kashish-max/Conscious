@@ -10,25 +10,60 @@
   <div class="row">
     <div class="col">
       <!--{{ text }}-->
-        <form>
+        <form id="form" action="triggers" method="POST">
+            {% csrf_token %}
             <div class="form-group">
              <label for="exampleFormControlTextarea1">Paste the text to be searched here:</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{% if text %} {{text}} {% endif %}</textarea>
+              <!--  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="some_text"></textarea>-->
+                {% if text %}
+                <textarea class="form-control" name = 'some_text' id="exampleFormControlTextarea1" rows="3">{{ text }}</textarea>
+                {% else %}
+                <textarea class="form-control" name="some_text" id="exampleFormControlTextarea2" rows="3"></textarea>
+                {% endif %}
                 </div>
-            <button type="button" class="btn btn-default" id="btn">Check!</button>
+            <button type="submit" class="btn btn-default" id="btn">Check!</button>
         </form>
     </div>
     <div class="col">
         <div class="row">
       Trigger warnings found:</div>
-        <div class="row" id="trigPanel"></div>
+        <div class="row" id="trigPanel">
+            {% if text %}
+            <ul>
+                {% for t in triggers %}
+                     <li>{{ t }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
     </div>
   </div>
 </div>
+<!--
 <script>
         document.getElementById('btn').onclick = function() {
             document.getElementById('trigPanel').innerHTML = 'a warning';
         }
     </script>
+
+<script>
+    document.getElementById('btn').onclick = function(){
+        const triggers = ["9 11", "9-11", "9/11", "ableism", "abusive", "ageism", "alcoholism", "animal abuse", "animal death", "animal violence", "bestiality", "gore", "corpse", "bully", "cannibal", "car accident", "child abuse", "childbirth", "classism", "death", "decapitation", "abuse", "drug", "heroin", "cocaine", "eating disorder", "anorexia", "binge eating", "bulimia", "fatphobia", "forced captivity", "holocaust", "hitler", "homophobia", "hostage", "incest", "kidnap", "murder", "nazi", "overdose", "pedophilia", "prostitution", "PTSD", "racism", "racist", "rape", "raping", "scarification", "self-harm", "self harm", "cutting", "sexism", "slavery", "slurs", "suicide", "suicidal", "swearing", "terminal illness", "terrorism", "torture", "transphobia", "violence", "warfare"];
+        const text = document.getElementById('exampleFormControlTextarea1').innerHTML.toLowerCase();
+        alert(document.getElementById('exampleFormControlTextarea1').innerHTML);
+        let foundTriggers = [];
+
+        triggers.forEach(findTrig);
+
+        function findTrig(value){
+         if (text.indexOf(value)>-1){
+        foundTriggers.push(value);
+         }
+        }
+         document.getElementById('trigPanel').innerHTML = foundTriggers.join("\n");
+        //alert(foundTriggers.join("\n"));
+        }
+
+</script>-->
 </body>
 </html>
