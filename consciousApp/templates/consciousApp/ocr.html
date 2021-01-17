@@ -70,12 +70,20 @@ div.desc {
   text-align: center;
 }
 </style>
+	  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <div class="gallery">
-  <a target="_blank" href="triggers">
+  <a id="btnPost" target="_blank" href="triggers">
     <img src="{% static 'consciousApp/images/tw.jpg' %}" alt="Cinque Terre" width="600" height="400">
   </a>
+
   <div class="desc">Find trigger warnings in the text</div>
 </div>
+  <form action = "triggers" method = "POST">
+	  {% csrf_token %}
+    <label for="some_text">Your name: </label>
+    <input id="some_text" type="text" name="some_text">
+    <input type="submit" value="OK">
+</form>
 	</body>
 </html>
 

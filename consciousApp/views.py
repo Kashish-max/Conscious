@@ -12,6 +12,8 @@ def braille(request):
     return render(request,'consciousApp/braille.html')
 
 def triggers(request):
+        if request.method=='POST':
+            return render(request, 'consciousApp/triggers.html', {'text': request.POST['some_text']})
         return render(request, 'consciousApp/triggers.html')
 
 
