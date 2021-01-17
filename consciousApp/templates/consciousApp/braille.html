@@ -21,48 +21,53 @@ function setCSS(size) {
 	elem('css').href='css/braille-'+size+'.css';
 }
 </script>
-<div style="color:#000; width:85%; display:block;">
-	<h1>Braille-Translator</h1>
-
+<div class="braille-sec">
+	<div class="br-descrp">
+		<h1>BRAILLE TRANSLATOR</h1>
+		<div class="boxes">
+			<p class="p1">Braille is a tactile writing system used by people who are 
+       		 visually impaired. It is traditionally written with embossed paper.</p>
+			<p class="p2">Braille users can read computer screens and other electronic supports using refreshable braille displays. </p>	
+			<p class="p3">Braille is named after its creator, Louis Braille, a Frenchman who lost his sight as a result of a
+        	childhood accident.</p>
+			<p class="p4">Louis Braille developed a code for the French alphabet as 
+       		 an improvement on night writing.</p>
+		</div>
+	</div>
 	
-	<p>Braille is a tactile writing system used by people who are 
-		visually impaired. It is traditionally written with embossed paper. 
-		Braille users can read computer screens and other electronic supports using refreshable braille displays. 
-		They can write braille with the original slate and stylus or type it on a braille writer, 
-		such as a portable braille notetaker or computer that prints with a braille embosser.</p>
-	<p>Braille is named after its creator, Louis Braille, a Frenchman who lost his sight as a result of a
-		childhood accident. In 1824, at the age of fifteen, he developed a code for the French alphabet as 
-		an improvement on night writing.</p>
+	<div class="br-formation">
+		<div class="br-alpha">
+			<h2>ALPHABET</h2>
+			<script language="javascript">
+				document.write(br.alphabet())
+			</script>
+		</div>
 
-	<h2>Alphabet</h2>
+		<input id="txtBr" value= '{{ val }}' class="form-control pull-left" type="text" style="width:200px">
+		<input id="btnBr" type="submit" value="Show Braille" maxlength="50" onclick="BrText()"
+				class="btn btn-primary pull-left">
 
-	<script language="javascript">
-		document.write(br.alphabet())
-	</script>
-
-	<input id="txtBr" value= '{{ val }}' class="form-control pull-left" type="text" style="width:200px">
-	<input id="btnBr" type="submit" value="Show Braille" maxlength="50" onclick="BrText()"
-			class="btn btn-primary pull-left">
-
-	<div style="height:20px;width:1px;"></div>
-	<div id="myBr" class="braille" style="margin-top:30px;min-height:70px;min-width:1px;"></div>
+		<div style="height:20px;width:1px;"></div>
+		<div id="myBr" class="braille" style="margin-top:30px;margin-bottom:10px;min-width:1px;"></div>
 	
 
-	<script language="javascript">
-	document.getElementById('txtBr').addEventListener("keyup", function(evt) {
-		if(evt.keyCode===13){
-			BrText();
-		}
-	});
-	</script>
+		<script language="javascript">
+		document.getElementById('txtBr').addEventListener("keyup", function(evt) {
+			if(evt.keyCode===13){
+				BrText();
+			}
+		});
+		</script>
 
-<form action = "{% url 'ttb' %}" method = "POST"> 
-		{% csrf_token %}  
-		<label for="text_data">Text Content:</label> <br>
-		<input id="text_data" type="text" name="text_data"> <br>
-		<input type="submit" value="BRF conversion">
-	</form> 
-
+		<form action = "{% url 'ttb' %}" method = "POST"> 
+			{% csrf_token %}  
+			<div>
+				<label for="text_data">Text Content:</label> <br>
+				<input id="text_data" type="text" name="text_data" style="outline: none; border: 1px solid #bbb; padding: 10px 10px;border-radius: 4px;"> <br>
+			</div>
+			<input type="submit" value="BRF conversion" class="btn btn-primary" style="padding: 0px 12px; height: 42px; margin-top: 19.5px;"> 
+		</form> 
+	</div>
 	</script>
 </div>
 {% endblock %}

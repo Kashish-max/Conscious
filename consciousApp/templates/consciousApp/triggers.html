@@ -1,5 +1,5 @@
 {% extends 'consciousApp/index.html' %} {% load static %} {% block body_block%}
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <title>Trigger Warnings</title>
 <link
   id="css"
@@ -7,30 +7,40 @@
   rel="stylesheet"
 />
 <script src="{% static 'consciousApp/js/triggers.js' %}"></script>
-<section>
-  <br>
-  <h1>Trigger Warnings</h1>
-  <p> Trigger warnings to understand the context of the news/data/text and provide insights, 
-    keywords and summary of said data. This helps people with anxiety, stress, or other
-     mental illnesses like PTSD to avoid certain common triggers.
-     A trigger warning is a statement made prior to sharing potentially disturbing content. 
-     That content might include graphic references to topics such as sexual abuse, self-harm, 
-     violence, eating disorders, and so on, and can take the form of an image, video clip, audio clip, 
-     or piece of text.</p>
-  <br>
+<div class="trigger-sec">
+  <section>
+    <br />
+    <h1>TRIGGER WARNINGS</h1>
+    <p>
+      Trigger warnings to understand the context of the news/data/text and
+      provide insights, keywords and summary of said data. This helps people
+      with anxiety, stress, or other mental illnesses like PTSD to avoid certain
+      common triggers. A trigger warning is a statement made prior to sharing
+      potentially disturbing content. That content might include graphic
+      references to topics such as sexual abuse, self-harm, violence, eating
+      disorders, and so on, and can take the form of an image, video clip, audio
+      clip, or piece of text.
+    </p>
+    <br />
+  </section>
 
-</section>
-
-<!--Insights and Summarization from just link-->
-<form action = "{% url 'triggers' %}" method = "POST"> 
-  {% csrf_token %}  
-  <label for="Link">Text Content:</label> <br>
-  <input id="Link" type="url" name="Link"> <br>
-  <label for="input_text">Input Content</label><br>
-  <input id="input_text" type="text" name="input_text"> <br>
-  <input  type="submit" name="show_wordcloud" value='Show WordCloud'>
-  <input type="submit" name="check_triggers" value="Check Triggers"> 
-</form> 
+  <!--Insights and Summarization from just link-->
+  <form action="{% url 'triggers' %}" method="POST">
+    {% csrf_token %}
+    <div style="display: flex; margin-bottom: 15px;">
+      <div style="display: block; margin-right: 25px;">
+        <label for="Link">Text Content:</label> <br />
+        <input id="Link" class="txt-in" type="url" name="Link" /> <br />
+      </div>
+      <div style="display: block">
+        <label for="input_text">Input Content</label><br />
+        <input id="input_text" class="txt-in" type="text" name="input_text" /> <br />
+      </div>
+    </div>
+    <input type="submit" class="submitbtn" name="show_wordcloud" value="Show WordCloud" />
+    <input type="submit" class="submitbtn" name="check_triggers" value="Check Triggers" />
+  </form>
+</div>
 <!-- <button  class="btn btn-default" onclick="picture()">WordCloud</button>
 <img id="bigpic" src="bigpic" style="display:none;" />
 <script type="text/javascript">
@@ -69,7 +79,5 @@
         }
 
 </script>-->
-</body>
-</html>
-</script>
+
 {% endblock %}

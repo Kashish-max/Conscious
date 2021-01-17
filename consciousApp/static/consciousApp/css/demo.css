@@ -1,41 +1,121 @@
-
 body, input, select {
-  font-size: 16px;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
 /* 
 h1, h2, h3, h4 { 
     padding-top: 10px;
     color: #0099cc;
 } */
 
-.braille{
-    margin-top:20px;
+.braille-sec {
+    color: #000;
+    width: 85%;
+    display: block;
+    padding: 2% 1%;
+    font-family: 'Montserrat';
+    margin: 0 auto;
 }
-.braille-doc span, .braille-doc2 span{
-    position: relative;
-    top:-8px;
-    margin: 0 5px 0 20px;
-    display:inline-block;
+
+.br-descrp {
+    /* background: #212528; */
+    padding: 0% 1%;
+    color: #fff;
+    /* border-radius: 10px; */
+}
+
+.br-descrp h1 {
+    color: #222;
+    margin-bottom: 10px;
     text-align: center;
 }
-.braille-doc >div{
-    display:inline-block;
+
+.br-descrp p {
+    line-height: 27px;
+    letter-spacing: 0.4px;
+    font-family: 'Quicksand';
+    padding: 0.5% 1.5% 1.5%;
+    margin: 0 1%;
+    border-radius: 5px;
+    text-align: center;
+    box-sizing: border-box;
 }
-.braille-doc2 >div{
-    display:inline-block;
-    text-align: left; 
+
+.boxes {
+    display: flex;
+}
+
+.br-descrp .p1 {
+    border-top: 30px solid #67aee7;
+    background-color: #77b6ea;
+}
+
+.br-descrp .p2 {
+    border-top: 30px solid #6397a5;
+    background-color: #68a0ae;
+}
+
+.br-descrp .p3 {
+    border-top: 30px solid #06667e;
+    background-color: #066881;
+}
+
+.br-descrp .p4 {
+    border-top: 30px solid #42a8c4;
+    background-color: #41b2d1;
+}
+
+.br-formation {
+    padding: 2% 2%;
+}
+
+.br-alpha {
+    padding: 1% 2% 2%;
+    border-radius: 7px;
+    background: #212528;
+    color: #fff;
+    margin-bottom: 2%;
+}
+
+.br-alpha h2 {
+    font-family: 'Montserrat';
     margin-bottom: 10px;
 }
-.braille-doc2 span{
-    min-width:140px;
-    text-align: left; 
+
+.braille {
+    margin-top: 20px;
 }
-.mr50{
+
+.braille-doc span, .braille-doc2 span {
+    position: relative;
+    top: -8px;
+    margin: 0 5px 0 20px;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.braille-doc>div {
+    display: inline-block;
+}
+
+.braille-doc2>div {
+    display: inline-block;
+    text-align: left;
+    margin: 10px 5px 10px;
+}
+
+.braille-doc2 span {
+    min-width: 140px;
+    text-align: left;
+}
+
+.mr50 {
     margin-right: 50px;
 }
 
-.leftBar{
+.leftBar {
     position: fixed;
     top: 0;
     left: 0;
@@ -47,20 +127,20 @@ h1, h2, h3, h4 {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     */
 }
-.leftBar>a{
+
+.leftBar>a {
     display: block;
     margin-bottom: 10px;
 }
-name{
+
+name {
     display: block;
     margin-top: 50px;
 }
 
-
-
 /* pieces of css from bootstrap */
 
-.form-control{
+.form-control {
     display: block;
     width: 100%;
     height: 34px;
@@ -72,8 +152,8 @@ name{
     background-image: none;
     border: 1px solid #ccc;
     border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
@@ -84,6 +164,7 @@ name{
     background-color: #337ab7;
     border-color: #2e6da4;
 }
+
 .btn {
     margin-left: 1em;
     display: inline-block;
@@ -104,15 +185,19 @@ name{
     -moz-user-select: none;
     -ms-user-select: none;
 }
-.pull-left{
+
+.pull-left {
     float: left;
 }
-.pull-right{
+
+.pull-right {
     float: right;
 }
-.clearer{
-	clear: both;
+
+.clearer {
+    clear: both;
 }
+
 pre {
     display: block;
     overflow: auto;
@@ -127,11 +212,16 @@ pre {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-pre > code {
+
+pre>code {
     padding: 0;
     font-size: inherit;
     color: inherit;
     white-space: pre-wrap;
     background-color: transparent;
     border-radius: 0;
+}
+
+form {
+    display: flex;
 }

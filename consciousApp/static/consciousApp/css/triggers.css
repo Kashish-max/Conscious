@@ -1,10 +1,84 @@
 .label {
-    color: white;
-    padding: 8px;
-  }
-  
-  .success {background-color: #4CAF50;} /* Green */
-  .info {background-color: #2196F3;} /* Blue */
-  .warning {background-color: #ff9800;} /* Orange */
-  .danger {background-color: #f44336;} /* Red */
-  .other {background-color: #e7e7e7; color: black;} /* Gray */
+  color: white;
+  padding: 8px;
+}
+
+.success {
+  background-color: #4CAF50;
+}
+
+/* Green */
+
+.info {
+  background-color: #2196F3;
+}
+
+/* Blue */
+
+.warning {
+  background-color: #ff9800;
+}
+
+/* Orange */
+
+.danger {
+  background-color: #f44336;
+}
+
+/* Red */
+
+.other {
+  background-color: #e7e7e7;
+  color: black;
+}
+
+/* Gray */
+
+.trigger-sec {
+  width: 85%;
+  display: block;
+  color: #222;
+  padding: 1.5% 2%;
+  margin: 0 auto;
+}
+
+section {
+  background: #212528;
+  padding: 0 2%;
+  color: #eee !important;
+  border-radius: 5px;
+  margin-bottom: 2%;
+}
+
+section h1 {
+  font-family: 'Montserrat';
+  margin-bottom: 10px;
+}
+
+section p {
+  font-family: 'Quicksand';
+  color: #ddd !important;
+  line-height: 26px;
+  letter-spacing: 0.4px;
+}
+
+.submitbtn {
+  padding: 5px 10px;
+  margin-right: 10px;
+  background: none;
+  border: 2px solid #56c6d7;
+  color: #56c6d7;
+  border-radius: 5px;
+}
+
+.submitbtn:hover {
+  background-color: #56c6d7;
+  color: #fff;
+}
+
+.txt-in {
+  outline: none;
+  border: 1px solid #aaa;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
