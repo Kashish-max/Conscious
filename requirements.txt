@@ -5,4 +5,3 @@ newspaper3k
 nltk
 gunicorn
 wordcloud
-os
