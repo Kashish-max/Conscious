@@ -4,3 +4,6 @@ from django.http import HttpResponse, Http404
 
 def index(request):
     return render(request, 'consciousApp/index.html')
+
+def braille(request):
+    return render(request,'consciousApp/braille.html')
