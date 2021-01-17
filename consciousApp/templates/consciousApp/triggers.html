@@ -3,67 +3,35 @@
 <title>Trigger Warnings</title>
 <link
   id="css"
-  href="{% static 'consciousApp/css/dyslexicsol.css' %}"
+  href="{% static 'consciousApp/css/triggers.css' %}"
   rel="stylesheet"
 />
-<script src="{% static 'consciousApp/js/dyslexicsol.js' %}"></script>
-<div class="dyslexic-sec">
-  <div class="dys-descrp">
-    <p class="dys-head">Trigger Warning</p>
-    <p class="dys-exp">
-This page fixes up some issues for you
-    </p>
-  </div>
+<script src="{% static 'consciousApp/js/triggers.js' %}"></script>
+<section>
+  <br>
+  <h1>Trigger Warnings</h1>
+  <p> Trigger warnings to understand the context of the news/data/text and provide insights, 
+    keywords and summary of said data. This helps people with anxiety, stress, or other
+     mental illnesses like PTSD to avoid certain common triggers.
+     A trigger warning is a statement made prior to sharing potentially disturbing content. 
+     That content might include graphic references to topics such as sexual abuse, self-harm, 
+     violence, eating disorders, and so on, and can take the form of an image, video clip, audio clip, 
+     or piece of text.</p>
+  <br>
 
-<div class="container">
-  <div class="row">
-    <div class="col">
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet"/>
-      <!--{{ text }}-->
-        <form id="form" action="triggers" method="POST">
-            {% csrf_token %}
-            <div class="form-group">
-             <label for="exampleFormControlTextarea1">Paste the text to be searched here:</label>
-              <!--  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="some_text"></textarea>-->
-                {% if text %}
-                <textarea class="form-control" name = 'some_text' id="exampleFormControlTextarea1" rows="3">{{ text }}</textarea>
-                {% else %}
-                <textarea class="form-control" name="some_text" id="exampleFormControlTextarea2" rows="3"></textarea>
-                {% endif %}
-                </div>
-            <button type="submit" class="btn btn-default" id="btn">Check!</button>
-        </form>
-    </div>
-    <div class="col">
-        <div class="row">
-      Trigger warnings found:</div>
-        <div class="row" id="trigPanel">
-            {% if text %}
-            <ul>
-                {% if triggers %}
-                {% for t in triggers %}
-                     <li>{{ t }}</li>
-                {% endfor %}
-                {% endif %}
-            </ul>
-            {% endif %}
-        </div>
-    </div>
-  </div>
-</div>
-
+</section>
 
 <!--Insights and Summarization from just link-->
-<br>
-<form action = "{% url 'urldata' %}" method = "POST"> 
+<form action = "{% url 'triggers' %}" method = "POST"> 
   {% csrf_token %}  
   <label for="Link">Text Content:</label> <br>
-  <input id="Link" type="text" name="Link"> <br>
-  <input type="submit" value="Check Triggers"> 
+  <input id="Link" type="url" name="Link"> <br>
+  <label for="input_text">Input Content</label><br>
+  <input id="input_text" type="text" name="input_text"> <br>
+  <input  type="submit" name="show_wordcloud" value='Show WordCloud'>
+  <input type="submit" name="check_triggers" value="Check Triggers"> 
 </form> 
-
-
-<button  class="btn btn-default" onclick="picture()">WordCloud</button>
+<!-- <button  class="btn btn-default" onclick="picture()">WordCloud</button>
 <img id="bigpic" src="bigpic" style="display:none;" />
 <script type="text/javascript">
   function picture(){ 
@@ -73,7 +41,7 @@ This page fixes up some issues for you
   document.getElementById('bigpic').style.display='block';
 
   }
-</script>
+</script> -->
 <!--
 <script>
         document.getElementById('btn').onclick = function() {
