@@ -10,8 +10,14 @@ def ocr(request):
 
 def braille(request):
     print(request.POST) 
-    data=request.POST.get('your_name')
+    data=request.POST.get('text_data')
     print(data)
+    text_file = open('data.txt', 'w') 
+    text_file.write(data) 
+    text_file.close() 
+    text_file = open('data.txt', 'r') 
+    print(text_file.read()) 
+    text_file.close() 
     return render(request,'consciousApp/braille.html')
 
 def triggers(request):
