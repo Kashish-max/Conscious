@@ -1,141 +1,202 @@
-#log > div {
-  color: #313131;
-  border-top: 1px solid #dadada;
-  padding: 9px;
-  display: flex;
-}
-#log > div:first-child {
-  border: 0;
-}
-.status {
-  min-width: 250px;
-}
-#log {
-  border: 1px solid #dadada;
-  padding: 10px;
-  min-height: 200px;
-}
-.image-container img{
-  border: 1px solid #dadada;
-}
-progress {
-  display: block;
-  width: 100%;
-  transition: opacity 0.5s linear;
-}
-progress[value="1"] {
-  opacity: 0.5;
-}
-select {
-  padding: 12px 5px;
-  width: 209px;
-}
+	div.gallery {
+	  margin: 15px;
+	  border: 1px solid #ccc;
+	  border-radius: 10px;
+	  float: left;
+	  width: 180px;
+	}
 
-.inputfile {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-}
+	div.gallery:hover {
+	  border: 1px solid #777;
+	}
 
-.inputfile + label {
-  max-width: 80%;
-  font-size: 1.25rem;
-  /* 20px */
-  font-weight: 700;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  cursor: pointer;
-  display: inline-block;
-  overflow: hidden;
-  padding: 0.625rem 1.25rem;
-  /* 10px 20px */
-}
+	div.gallery img {
+	  width: 100%;
+	  height: auto;
+	}
 
-.no-js .inputfile + label {
-  display: none;
-}
+	div.desc {
+	  padding: 15px;
+	  text-align: center;
+	  color: #222 !important;
+	}
 
-.inputfile:focus + label,
-.inputfile.has-focus + label {
-  outline: 1px dotted #000;
-  outline: -webkit-focus-ring-color auto 5px;
-}
+	#log>div {
+	  color: #313131;
+	  border-top: 1px solid #dadada;
+	  padding: 9px;
+	  display: flex;
+	}
 
-.inputfile + label * {
-  /* pointer-events: none; */
-  /* in case of FastClick lib use */
-}
+	#log>div:first-child {
+	  border: 0;
+	}
 
-.inputfile + label svg {
-  width: 1em;
-  height: 1em;
-  vertical-align: middle;
-  fill: currentColor;
-  margin-top: -0.25em;
-  /* 4px */
-  margin-right: 0.25em;
-  /* 4px */
-}
+	.status {
+	  min-width: 250px;
+	}
 
+	#log {
+	  border: 1px solid #dadada;
+	  padding: 10px;
+	  min-height: 100%;
+	  background-color: #212528;
+	  border-radius: 10px;
+	  padding: 4%;
+	}
 
-/* style 1 */
+	progress {
+	  display: block;
+	  width: 100%;
+	  transition: opacity 0.5s linear;
+	}
 
-.inputfile-1 + label {
-  color: #f1e5e6;
-  background-color: #d3394c;
-}
+	progress[value="1"] {
+	  opacity: 0.5;
+	}
 
-.inputfile-1:focus + label,
-.inputfile-1.has-focus + label,
-.inputfile-1 + label:hover {
-  background-color: #722040;
-}
+	select {
+	  padding: 12px 5px;
+	  width: 209px;
+	}
 
-#arrow-right ,
-#arrow-down {
-  font-size: 3em;
-}
+	.inputfile {
+	  width: 0.1px;
+	  height: 0.1px;
+	  opacity: 0;
+	  overflow: hidden;
+	  /* position: absolute; */
+	  z-index: -1;
+	}
 
-#arrow-right {
-  position: absolute;
-  top: 60px;
-}
-#arrow-down{
-  width: 50px;
-  margin: 10px auto;
-}
+	.inputfile+label {
+	  max-width: 80%;
+	  font-size: 1.25rem;
+	  /* 20px */
+	  font-weight: 700;
+	  text-overflow: ellipsis;
+	  white-space: nowrap;
+	  cursor: pointer;
+	  display: inline-block;
+	  overflow: hidden;
+	  padding: 0.625rem 1.25rem;
+	  /* 10px 20px */
+	}
 
-#arrow-right.fa-arrow-right ,
-#arrow-right.fa-spin ,
-#arrow-down.fa-arrow-down ,
-#arrow-down.fa-spin  {
-  color: #d3394c;
-}
+	.no-js .inputfile+label {
+	  display: none;
+	}
 
-.fa-check{
-  color:green;
-}
+	.inputfile:focus+label, .inputfile.has-focus+label {
+	  outline: 1px dotted #000;
+	  outline: -webkit-focus-ring-color auto 5px;
+	}
 
-#log pre {
-  white-space: pre-wrap;       /* css-3 */
-  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-  white-space: -pre-wrap;      /* Opera 4-6 */
-  white-space: -o-pre-wrap;    /* Opera 7 */
-  word-wrap: break-word;       /* Internet Explorer 5.5+ */
- }
+	.inputfile+label * {
+	  /* pointer-events: none; */
+	  /* in case of FastClick lib use */
+	}
 
- #startLink{
-   text-decoration: underline;
-   margin-top: 100px;
- }
+	.inputfile+label svg {
+	  width: 1em;
+	  height: 1em;
+	  vertical-align: middle;
+	  fill: currentColor;
+	  margin-top: -0.25em;
+	  /* 4px */
+	  margin-right: 0.25em;
+	  /* 4px */
+	}
 
- @media screen and (min-width: 992px) {
-  #startPre{
-    position: absolute;
-    top: 50px;
-    padding: 20px;
-  }
-}
+	/* style 1 */
+
+	.inputfile-1+label {
+	  color: #f1e5e6;
+	  background-color: #d3394c;
+	}
+
+	.inputfile-1:focus+label, .inputfile-1.has-focus+label, .inputfile-1+label:hover {
+	  background-color: #722040;
+	}
+
+	#arrow-right, #arrow-down {
+	  font-size: 3em;
+	}
+
+	#arrow-right {
+	  /* position: absolute; */
+	  top: 60px;
+	}
+
+	#arrow-down {
+	  width: 50px;
+	  margin: 10px auto;
+	}
+
+	#arrow-right.fa-arrow-right, #arrow-right.fa-spin, #arrow-down.fa-arrow-down, #arrow-down.fa-spin {
+	  color: #d3394c;
+	}
+
+	.fa-check {
+	  color: green;
+	}
+
+	#log pre {
+	  white-space: pre-wrap;
+	  /* css-3 */
+	  white-space: -moz-pre-wrap;
+	  /* Mozilla, since 1999 */
+	  white-space: -pre-wrap;
+	  /* Opera 4-6 */
+	  white-space: -o-pre-wrap;
+	  /* Opera 7 */
+	  word-wrap: break-word;
+	  /* Internet Explorer 5.5+ */
+	}
+
+	#startLink {
+	  text-decoration: underline;
+	  margin-top: 100px;
+	}
+
+	@media screen and (min-width: 992px) {
+	  #startPre {
+	    position: absolute;
+	    top: 155px;
+	    padding: 20px;
+	  }
+	}
+
+	.container {
+	  padding: 2% 9%;
+	}
+
+	.row {
+	  display: flex;
+	  justify-content: center;
+	  margin-top: 1%;
+	}
+
+	.image-container {
+	  width: 100%;
+	  padding: 2%;
+	  background: #a4a8ac;
+	  border-radius: 10px;
+	}
+
+	.image-container img {
+	  width: 100%;
+	}
+
+	.w-45 {
+	  width: 45% !important;
+	}
+
+	.w-10 {
+	  width: 10% !important;
+	  transform: translate(20%, 30%);
+	}
+
+	.box {
+	  margin-left: -23%;
+	}

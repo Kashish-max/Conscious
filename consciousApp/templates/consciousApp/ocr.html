@@ -1,39 +1,18 @@
 {% extends 'consciousApp/index.html' %} {% load static %} {% block body_block%}
 <title>OCR</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+{% comment %} <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> {% endcomment %}
 <link rel="stylesheet" href="{% static 'consciousApp/css/ocr.css' %}">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://kit.fontawesome.com/4414288e8e.js"></script>
 <script language="JavaScript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/tesseract.js@2.1.1/dist/tesseract.min.js"></script>
-<style>
-	div.gallery {
-	margin: 5px;
-	border: 1px solid #ccc;
-	float: left;
-	width: 180px;
-	}
 
-	div.gallery:hover {
-	border: 1px solid #777;
-	}
-
-	div.gallery img {
-	width: 100%;
-	height: auto;
-	}
-
-	div.desc {
-	padding: 15px;
-	text-align: center;
-	}
-</style>
 <div class="ocr-sec" style="width: 85%; display:block;">
 	<main>
-		<div class="container mt-3">
+		<div class="container">
 			<div class="row">
-				<div class="col-12 col-md-4 ">
+				<div class="col-12 col-md-4" style="margin: 0 64px">
 					<select id="langsel">
-						<option value='eng'     selected> English       </option>
+						<option value='eng' selected> English </option>
 					</select>
 				</div>
 				<div class="col-12 col-md-4 mt-3 mt-md-0">
@@ -44,14 +23,14 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-12 col-md-5">
-				<div class="image-container"><img id="selected-image"  src="https://tesseract.projectnaptha.com/img/eng_bw.png" class="col-12 p-0" /></div>
+				<div class="col-12 col-md-5 w-45">
+				<div class="image-container"><img id="selected-image"  src="{% static 'consciousApp/images/sample1.jpg' %}" class="col-12 p-0" /></div>
 				</div>
-				<div class="col-12 col-md-1">
+				<div class="col-12 col-md-1 w-10">
 				<i id="arrow-right" class="fas fa-arrow-right d-none d-md-block"></i>
-				<i id="arrow-down" class="fas fa-arrow-down d-block d-md-none"></i>
+				{% comment %} <i id="arrow-down" class="fas fa-arrow-down d-block d-md-none"></i> {% endcomment %}
 				</div>
-				<div class="col-12 col-md-6">
+				<div class="col-12 col-md-6 w-45">
 				<div id="log">
 						<span id="startPre">
 							<a id="startLink" href="#">Click here to recognize text in the demo</a>
@@ -94,8 +73,8 @@ function post(path, params, method='post') {
 }
 
 	</script>
-	<br><br><br>
-	<div style="margin-left: 315px;">
+	<br>
+	<div style="display: flex; justify-content: center;">
 	<div class="gallery">
 	<a id="btnPost" target="_blank" onclick="post('triggers', {'some_text': document.getElementById('log').innerHTML, csrfmiddlewaretoken: '{{ csrf_token }}'});">
 		<img src="{% static 'consciousApp/images/tw.png' %}" alt="TW" width="600" height="400">

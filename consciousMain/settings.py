@@ -25,7 +25,8 @@ SECRET_KEY = '1g7c(tdcry@gql$tbzz6&2^8w)y9nqdz1ma0s21jj%xe*rqx50'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0','conscious-utility-app.herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0','conscious-utility-app.herokuapp.com','localhost', '127.0.0.1']
+# ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
 
 
 # Application definition
