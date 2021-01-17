@@ -16,4 +16,7 @@ def triggers(request):
             return render(request, 'consciousApp/triggers.html', {'text': request.POST['some_text']})
         return render(request, 'consciousApp/triggers.html')
 
+def dyslexicsol(request):
+    return render(request,'consciousApp/open-dyslexic.html')
+
 
