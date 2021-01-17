@@ -43,7 +43,6 @@ def braille(request):
     val = 'I am reading Braille'
     if request.method=='POST':
         val = request.POST['some_text']
-    print(type(val))
     return render(request,'consciousApp/braille.html', {'val': val})
 
 def triggers(request):
@@ -62,7 +61,10 @@ def triggers(request):
             return render(request, 'consciousApp/triggers.html')
 
 def dyslexicsol(request):
-    return render(request,'consciousApp/open-dyslexic.html')
+    val = 'Hello! Convert your text into dyslexic readable form.'
+    if request.method == 'POST':
+        val = request.POST['some_text']
+    return render(request,'consciousApp/open-dyslexic.html', {'val':val})
 
 def urldata(request):
     print(request.POST)

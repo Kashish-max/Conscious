@@ -111,7 +111,7 @@ function post(path, params, method='post') {
 	</div>
 
 	<div class="gallery">
-	<a target="_blank" onclick="post('#', {'some_text': document.getElementById('log').innerHTML, csrfmiddlewaretoken: '{{ csrf_token }}'});">
+	<a target="_blank" onclick="post('open-dyslexic', {'some_text': document.getElementById('log').innerHTML, csrfmiddlewaretoken: '{{ csrf_token }}'});">
 		<img src="{% static 'consciousApp/images/dys.png' %}" alt="dys" width="600" height="400">
 	</a>
 	<div class="desc">Show text in Open-Dyslexic font</div>
