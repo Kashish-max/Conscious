@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
     font-family: OpenDyslexic;
     src: url("./../fonts/OpenDyslexicMono-Regular.otf") format("opentype");
 }
@@ -39,7 +39,7 @@
 @font-face {
     font-family: eulexia;
     src: url('http://dyslexicfonts.com/fonts/eulexia.ttf');
-}
+} */
 
 .dyslexic-sec {
     font-family: opendyslexic !important;
