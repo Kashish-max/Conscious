@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse, Http404
 import os
 from os import path
-
 import numpy as np
 import pandas as pd
 from PIL import Image
@@ -14,6 +13,7 @@ nltk.download('punkt')
 import re, pprint
 from nltk import word_tokenize
 from hatesonar import Sonar
+from django.views.static import serve
 
 def checkKey(dict, key): 
       
@@ -46,6 +46,12 @@ def texttobrf(request):
 
 def braille(request):
    val = 'I am reading Braille'
+   print(request.POST)
+   key = 'download'
+   one=checkKey(dict(request.POST), key);
+   if one == True:
+       filepath = './consciousApp/static/consciousApp/output/data.brf'
+       return serve(request, os.path.basename(filepath), os.path.dirname(filepath))
    if request.method=='POST':
         val = request.POST['some_text']
    return render(request,'consciousApp/braille.html', {'val': val})
