@@ -40,13 +40,17 @@
     <input type="submit" class="submitbtn" name="show_wordcloud" value="Show WordCloud" />
     <input type="submit" class="submitbtn" name="check_triggers" value="Check Triggers" />
     <input type="submit" class="submitbtn" name="show_details" value="Show URL Text Details" />
+    <input type="submit" class="submitbtn" name="hate_speech" value="Hate Speech Detection" />    
   </form>
 
 <br>
 <hr>
 <br>
 <p> Trigger Words: {{triggers}} {{tw}}</p><br>
-<img src="{% static 'consciousApp/output/word-cloud.png' %}" alt="Lamp" >
+<object data="avatar.jpg" type="image/jpg">
+  <img src="{% static 'consciousApp/output/word-cloud.png' %}" alt="Lamp"/>
+</object>
+<!-- <img src="{% static 'consciousApp/output/word-cloud.png' %}" alt="Lamp" > -->
 <br>
 <hr>
 <p>Authors: {{authors}}</p><br>
@@ -56,6 +60,11 @@
 <br>
 <hr>
 <br>
+<p>Hate Speech Confidence: {{hate_speech_confidence}}</p><br>
+<p>Offensive Language Confidence: {{offensive_language_confidence}}</p><br>
+<p>Neither Confidence: {{neither_confidence}}</p><br>
+<br>
+<hr>
 </div>
 <!-- <button  class="btn btn-default" onclick="picture()">WordCloud</button>
 <img id="bigpic" src="bigpic" style="display:none;" />

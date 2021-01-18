@@ -13,6 +13,7 @@ import nltk
 nltk.download('punkt') 
 import re, pprint
 from nltk import word_tokenize
+from hatesonar import Sonar
 
 def checkKey(dict, key): 
       
@@ -60,6 +61,8 @@ def triggers(request):
             two=checkKey(data, key)
             key = 'show_wordcloud'
             three=checkKey(data, key)
+            key = 'hate_speech'
+            four=checkKey(data, key)
             print(one,two,three)
             #URL Link case
             if(one==True):
@@ -96,8 +99,24 @@ def triggers(request):
                 wordcloud = WordCloud(stopwords=stopwords, max_font_size=50, max_words=100, background_color="white").generate(text)
                 wordcloud.to_file("./consciousApp/static/consciousApp/output/word-cloud.png")
                 data="./../../static/consciousApp/output/word-cloud.png"
-                return render(request, 'consciousApp/triggers.html', {'data': data} )          
+                return render(request, 'consciousApp/triggers.html', {'data': data} )    
+
+            elif(four==True):
+                sonar = Sonar();
+                text = request.POST['input_text'].lower();
+                url=data['Link'][0];
+                data=sonar.ping(text=text)["classes"]; 
+                hate_speech=data[0];
+                hate_speech_confidence=hate_speech["confidence"]*100;
+                offensive_language=data[1];
+                offensive_language_confidence=offensive_language["confidence"]*100;
+                neither=data[2]; 
+                neither_confidence=neither["confidence"]*100;  
+                print(type(data))
+                print(offensive_language_confidence*100,hate_speech_confidence*100,neither_confidence*100)
+                return render(request, 'consciousApp/triggers.html',{'hate_speech_confidence':hate_speech_confidence,'offensive_language_confidence':offensive_language_confidence,'neither_confidence':neither_confidence})    
         else:
+            
             return render(request, 'consciousApp/triggers.html')
 
 def dyslexicsol(request):
